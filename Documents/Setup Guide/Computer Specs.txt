@@ -1,0 +1,7 @@
+Platform: Laptop
+Brand/Model: ASUS TUF Gaming F15 | FX507Z
+Processor: 12th Gen Intel(R) Core(TM) i7-12700H 2.30GHz 14-Cores (6P|8E)
+Installed RAM: 64 GB
+System: 64-bit Windows 11 Home Single Language 23H2
+Disk Drive: 2TB NVMe SSD
+Display adapters: Intel(R) Iris(R) Xe Graphics and NVIDIA GeForce RTX 3050 Ti Laptop GPU

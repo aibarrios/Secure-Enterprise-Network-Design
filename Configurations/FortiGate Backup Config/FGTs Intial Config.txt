@@ -1,0 +1,160 @@
+!FGT Initial Config for MGMT via GUI
+
+
+!HQ-FW1
+config system global
+ set hostname HQ-FW1
+ end
+
+config system interface
+ edit port1
+  set mode static
+  set ip 192.168.26.110/24
+  set allowaccess https http ping ssh snmp
+  set alias "MGMT"
+  set status up
+  next
+ edit Loopback0
+  set vdom "root"
+  set ip 111.0.0.254/32
+  set allowaccess ping ssh
+  set type loopback
+  set description "Loopback interface 0"
+  set alias "lo0"
+  set status up
+  end
+
+config system dns
+ set primary 192.168.200.1
+ set secondary 1.1.1.1
+ set domain ainetsec.local
+ end
+
+config system ntp
+ set type custom
+ set ntpsync enable
+  config ntpserver
+   edit 1
+    set server 192.168.200.1
+   next
+   edit 2
+    set server 121.58.193.100
+   end
+end
+
+
+!HQ-FW2
+config system global
+ set hostname HQ-FW2
+ end
+
+config system interface
+ edit port1
+  set mode static
+  set ip 192.168.26.120/24
+  set allowaccess https http ping ssh snmp
+  set alias "MGMT"
+  set status up
+  end
+
+config system dns
+ set primary 192.168.200.1
+ set secondary 1.1.1.1
+ set domain ainetsec.local
+ end
+
+config system ntp
+ set type custom
+ set ntpsync enable
+  config ntpserver
+   edit 1
+    set server 192.168.200.1
+   next
+   edit 2
+    set server 121.58.193.100
+   end
+end
+
+
+!BO1-FW1
+config system global
+ set hostname BO1-FW1
+ end
+
+config system interface
+ edit port1
+  set mode static
+  set ip 192.168.26.130/24
+  set allowaccess https http ping ssh snmp
+  set alias "MGMT"
+  set status up
+  next
+ edit Loopback0
+  set vdom "root"
+  set ip 111.0.1.254/32
+  set allowaccess ping ssh
+  set type loopback
+  set description "Loopback interface 0"
+  set alias "lo0"
+  set status up
+  end
+
+config system dns
+ set primary 192.168.200.1
+ set secondary 1.1.1.1
+ set domain ainetsec.local
+ end
+
+config system ntp
+ set type custom
+ set ntpsync enable
+  config ntpserver
+   edit 1
+    set server 192.168.200.1
+   next
+   edit 2
+    set server 121.58.193.100
+   end
+end
+
+
+!BO2-FW1
+config system global
+ set hostname BO2-FW1
+ end
+
+config system interface
+ edit port1
+  set mode static
+  set ip 192.168.26.140/24
+  set allowaccess https http ping ssh snmp
+  set alias "MGMT"
+  set status up
+  next
+ edit Loopback0
+  set vdom "root"
+  set ip 111.0.2.254/32
+  set allowaccess ping ssh
+  set type loopback
+  set description "Loopback interface 0"
+  set alias "lo0"
+  set status up
+  end
+
+config system dns
+ set primary 192.168.200.1
+ set secondary 1.1.1.1
+ set domain ainetsec.local
+ end
+
+config system ntp
+ set type custom
+ set ntpsync enable
+  config ntpserver
+   edit 1
+    set server 192.168.200.1
+   next
+   edit 2
+    set server 121.58.193.100
+   end
+end

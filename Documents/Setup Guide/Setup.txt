@@ -1,0 +1,92 @@
+Initial Setup:
+
+1. Install VMWare Workstation Pro 17.
+2. Install EVE-NG or PNETLab for lab simulation. I used PNETLab for this project.
+3. Install Wireshark for network traffic analysis and SecureCRT (or any SSH/Telnet terminal emulator) for terminal emulation.
+4. Setup EVE-NG or PNETLab VM in VMWare Workstation Pro 17. Below is the specs of my PNETLab VM:
+	Devices:
+		Memory			40 GB
+		Processors		8
+		Hard Disk (SCSI)	100 GB
+		Hard Disk 2 (SCSI)	500 GB
+		Network Adapter	NAT
+		Network Adapter 2	Bridge
+		Network Adapter 3	Host-only
+		Display			Auto-detect
+5. Secure a copy of device images and install it to your chosen lab simulator VM, you may refer to the lab simulator web page for proper installation of device images.
+	Images:
+		FGT					v7.0.15.M-build0632
+		pfSense				2.7.2
+		vIOS L2				viosl2-adventerprisek9-m.SSA.high_iron_20200929
+		Windows Workstation		10 Pro
+		Windows Server			2022 Standard
+		Ubuntu Desktop			24.04 LTS
+		Ubuntu Server			24.04 LTS
+		TinyCore				6.4
+6. Run and go to the Web GUI of your lab simulator, and login. At your workspace, import "Secure_Enterprise_Network.unl" file.
+7. At Web GUI of your lab simulator, open the imported file and run all nodes. Wait for awhile to make the simulation stable, depends on your computer. If your computer cannot run all nodes, at least run the following:
+	Nodes:
+		ISP (pfSense)
+		HQ-
+			Ext-SW1
+			DMZ-SW1
+			FW1
+			FW2
+			Int-SW1
+			Server-R1
+			CORE1
+			CORE2
+			ACC1
+			PC1
+		SRV1
+		WIN-SERVER
+		ubuntu-server
+		BO1-FW1
+		BO2-FW2
+	NOTE: If you want to test VPN, you should run additional nodes: Remote-PC1, and all BO1 side nodes up to BO1-PC1.
+
+
+Uploading configuration files:
+	A. FortiGate Firewalls:
+		1. Disconnect port1 of all FortiGate Firewalls from each respective site's Int-SW1..
+		2. Add a new object -> Network:
+			Number of networks to add = 1
+			Name/Prefix = MGMT
+			Type = Management(Cloud0)
+			Icon = *select preferred icon*
+				-> then, click Save button
+		3. Connect port1 of all FortiGate Firewalls to the MGMT network created in Step 2.
+		4. Open terminal for each FW. Login using "admin" and press return key to set new password for admin. Copy and paste respective configurations from "FGTs Initial Config.txt" file to each FW. Take note of the IP address set at port1 for each FW, these IP addresses will be used for Web GUI via MGMT network.
+		5. Access Web GUI (HTTP) for HQ-FW1 and HQ-FW2 and configure High Availability (HA A-A). Go to System -> HA and set the following options:
+			for HQ-FW1:
+				Mode = Active-Active
+				Device priority = 250
+				Cluster Settings:
+					Group Name = HQ-Cluster
+					Password = <Your desired password>
+					Session pickup = enable
+					Heartbeat interfaces = port6 (priority = 200) and port7 (priority = 100)
+			for HQ-FW2:
+				Mode = Active-Active
+				Device priority = 128
+				Cluster Settings:
+					Group Name = HQ-Cluster
+					Password = <Your desired password>
+					Session pickup = enable
+					Heartbeat interfaces = port6 (priority = 200) and port7 (priority = 100)
+			NOTE: Cluster Settings must match. After HQ-FW1 and HQ-FW2 synchronize, you can only access Web GUI for HQ-FW1.
+		6. Access Web GUI (HTTP) for each FGT. Click on the username in the top right corner and select Configuration > Restore:
+			i. Choose "Local PC" to restore from.
+			ii. Click "Upload" and select respective backup configuration file from "FGT Backup Config" folder. Example: HQ-FW1.conf
+			iii. Click OK. Then, FGT will reboot and wait for it to stabilize.
+		7. Disconnect port1 of all FGTs from MGMT network (delete this MGMT network afterwards), and reconnect original connection to each site's respective Int-SW1.
+	B. Cisco L2/L3 Switches:
+		1. Make sure that the Cisco device is already running and stabilized.
+		2. Open termninal for each Cisco device. Press return key.
+		3. Open "Cisco Backup Config" folder, find matching .txt file for each Cisco device. (example: HQ-Ext-SW1.txt for HQ-Ext-SW1 device)
+		4. Copy and paste the whole config from matching .txt file to its respective Cisco device.
+		5. Repeat Steps 1 to 4 for each Cisco device. Then, wait for it to stabilize.
+
+After following all the instructions/steps above, and setting up Windows Server and Ubuntu Server, we may now test our "Secure Enterprise Network Project".
+
+NOTE: If you want to recreate this lab simulation project without importing the "Secure_Enterprise_Network.unl", you may refer to "Company Network Plan" file for your guidance.
