@@ -1,4 +1,4 @@
-# 🛡️ Secure Enterprise Network Simulation
+# 🛡️ Secure Enterprise Network Design and Simulation
 
 ## 🛠️ Project Summary
 
