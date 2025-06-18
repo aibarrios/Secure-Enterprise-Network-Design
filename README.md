@@ -10,12 +10,12 @@ A self-directed initiative, the project showcases a secure and resilient multi-s
 
 ## 📅 Objectives
 
-- Design and simulate a secure, scalable enterprise network.
-- Configure Layer 2/3 Cisco switching, FortiGate firewalling, and routing (OSPF/BGP).
+- Design and simulate a secure, scalable, and redundant enterprise network.
+- Demonstrate interoperability of Cisco and FortiGate equipment with dynamic routing protocols (OSPF, BGP)
 - Integrate core services (DHCP, DNS, NTP, SMB, SFTP, TFTP, RADIUS) on Windows & Ubuntu servers.
 - Implement Hub-and-Spoke ADVPN for site-to-site tunnels and remote IPsec access for users.
-- Harden devices with SSH, AAA, ACLs, port security, DHCP snooping, and Dynamic ARP Inspection.
-- Document and troubleshoot like an network infrastructure engineer.
+- Harden devices with SSH, AAA (RADIUS), ACLs, VLAN, port security, DHCP snooping, and Dynamic ARP Inspection.
+- Develop comprehensive network documentation, topology maps, and configurations.
 
 ---
 
