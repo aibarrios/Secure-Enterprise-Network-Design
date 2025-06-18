@@ -1,3 +1,12 @@
+! Only use this to regenerate keys to enable SSH again if you power off any of the Cisco devices.
+! You may also need to erase SSH keys saved by your device inside the network simulation.
+! Make sure if you are using below commands that you are already in "Privileged Mode" (ex.: SW1# )
+! ------------------------------------------------------------------------------------------------------------------------------------------------
+
+! -------- COPY FROM HERE --------
 conf t
     crypto key generate rsa general mod 2048
     end
+
+! -------- COPY END HERE --------
+! Should go back in "Privileged Mode" (ex.: SW1# )

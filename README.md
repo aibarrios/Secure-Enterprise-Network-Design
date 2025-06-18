@@ -27,7 +27,8 @@ A self-directed initiative, the project showcases a secure and resilient multi-s
 │   ├── Cisco Backup Config/
 |   |   ├── BO1/
 |   |   ├── BO2/
-|   |   └── HQ/
+|   |   ├── HQ/
+|   |   └── cisco_ssh_enable.txt
 │   ├── FortiGate Backup Config/
 |   |   ├── BO1-FW1.conf
 |   |   ├── BO2-FW1.conf
@@ -42,10 +43,7 @@ A self-directed initiative, the project showcases a secure and resilient multi-s
 │   ├── Logical_Topology_BO2.png
 │   └── Logical_Topology_VPN.png
 ├── Documents/
-|   ├── Setup Guide/
-|   |   ├── Network_Plan_AINetSec.docx
-|   |   ├── Secure Enterprise Network.unl
-|   |   └── Setup.txt
+|   ├── Network_Plan_AINetSec.docx
 │   └── Secure_Enterprise_Network_Topologies.pdf
 └── README.md (this file)
 ```
