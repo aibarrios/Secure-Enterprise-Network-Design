@@ -23,19 +23,6 @@ A self-directed initiative, the project showcases a secure and resilient multi-s
 
 ```
 .
-├── Configurations/
-│   ├── Cisco Backup Config/
-|   |   ├── BO1/
-|   |   ├── BO2/
-|   |   ├── HQ/
-|   |   └── cisco_ssh_enable.txt
-│   ├── FortiGate Backup Config/
-|   |   ├── BO1-FW1.conf
-|   |   ├── BO2-FW1.conf
-|   |   ├── HQ-FW1.conf
-|   |   └── FGTs Initial Config.txt
-│   └── Web Page Sample/
-|       └── index.html
 ├── Diagrams/
 │   ├── Physical_Topology_AINetSec.png
 │   ├── Logical_Topology_HQ.png
