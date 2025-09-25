@@ -1,0 +1,18 @@
+name: 💬 Project Question / Demo Request
+description: Ask a question about the Secure Enterprise Network Simulation or request a deeper dive
+title: "[Question] <brief summary>"
+labels: [question]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: What’s your question?
+      description: Describe your question or what part of the project you'd like to know more about.
+      placeholder: e.g. How did you implement SD-WAN failover between BO1 and BO2?
+    validations:
+      required: true
+  - type: input
+    id: contact
+    attributes:
+      label: Optional: How can I respond to you?
+      placeholder: your email or LinkedIn
