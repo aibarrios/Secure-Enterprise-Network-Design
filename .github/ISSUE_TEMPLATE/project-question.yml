@@ -14,5 +14,5 @@ body:
   - type: input
     id: contact
     attributes:
-      label: Optional: How can I respond to you?
+      label: (Optional) How can I respond to you?
       placeholder: your email or LinkedIn
